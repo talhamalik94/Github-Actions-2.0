@@ -18,29 +18,29 @@ jobs:
   
 
     steps:
-      -name: Checkout code
+      - name: Checkout code
       uses: actions/checkout@v4
       
-      -name: Set up Node.js
+      - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '23'
+        node-version: '20'
         
-      -name: Install dependencies
+      - name: Install dependencies
       run: npm ci
       
-      -name: Source Compilation (Syntax Check)
+      - name: Source Compilation (Syntax Check)
       run: |
          find src -name "*.js" -exec node --check {} +
          
-      -name: Test Files Compilation (Syntax Check)
+      - name: Test Files Compilation (Syntax Check)
       run: |
         find tests -name "*.js" -exec node --check {} +
         
-      -name: Lint
+      - name: Lint
       run: npm run lint
       
-      -name: Run Tests
+      - name: Run Tests
       run: npm test
 
 
